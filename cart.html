@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #show-order {
+            display: grid;
+            grid-template-columns: repeat(2, 20%);
+        }
+
+        .total {
+            text-align: end;
+            font-size: 25px;
+            margin-right: 5%
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        button {
+            margin-left: 90%;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Your Order</h1>
+
+    <div class="checkout">
+        <p class="total"></p>
+        <button><a href="checkout.html">Checkout</a></button>
+    </div>
+
+
+
+    <div id="show-order">
+
+    </div>
+
+</body>
+
+</html>
+<script>
+
+    let total_price = JSON.parse(localStorage.getItem("price"));
+    let bill = 0;
+
+    for (let i = 0; i < total_price.length; i++) {
+        bill = bill + total_price[i];
+    }
+
+
+    document.querySelector(".total").textContent = "Your Total is - $" + bill;
+
+    let data = JSON.parse(localStorage.getItem("meal"));
+    getOrder(data);
+
+
+    function getOrder(arr) {
+
+        arr.map(function (ele, index) {
+
+            let div = document.createElement("div");
+
+            let div1 = document.createElement("div");
+
+            let foodImg = document.createElement("img");
+            foodImg.src = ele.strCategoryThumb;
+
+            let cat = document.createElement("p");
+            cat.textContent = ele.strCategory;
+
+            let price = document.createElement("p")
+            price.textContent = total_price[index];
+
+            div.append(foodImg);
+            div1.append(cat, price);
+
+            document.querySelector("#show-order").append(div, div1);
+        })
+
+
+
+
+
+    }
+
+</script>
