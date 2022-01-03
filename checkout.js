@@ -19,6 +19,4 @@ function myOrder(event) {
     setTimeout(function () {
         alert("Your order is delivered")
     }, 12000)
-
-
 }
