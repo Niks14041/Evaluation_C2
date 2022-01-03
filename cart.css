@@ -1,0 +1,19 @@
+#show-order {
+  display: grid;
+  grid-template-columns: repeat(2, 20%);
+}
+
+.total {
+  text-align: end;
+  font-size: 25px;
+  margin-right: 5%;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  margin-left: 90%;
+  padding: 5px;
+}

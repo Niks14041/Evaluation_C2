@@ -1,0 +1,15 @@
+.navbar {
+  text-align: end;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  margin-left: 2%;
+  font-size: 25px;
+}
+
+h1 {
+  font-size: 40px;
+  text-align: center;
+}
